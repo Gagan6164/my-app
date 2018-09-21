@@ -2,15 +2,22 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state2 = {
-    tags: ["learn react", "complete week 4 on coursera", "start ML"]
+    tags: [
+      "learn react",
+      "complete week 4 on coursera",
+      "start ML",
+      "learn python"
+    ]
   };
   state = {
-    count: this.state2.tags.length + " things to do"
+    count: this.state2.tags.length
   };
   styles = {
     fontSize: 18,
     fontWeight: "bold"
   };
+
+  appendToDo() {}
 
   renderTags() {
     if (this.state2.tags.length === 0) return <p>you todo list is empty</p>;
@@ -30,14 +37,20 @@ class Counter extends Component {
         <span style={this.styles} className={this.getBadgeMethod()}>
           {this.formatCount()}
         </span>
-        <form>
-          Add a target todo:
-          <br />
-          <input type="text" name="task" />
-        </form>
-
-        <button className="btn btn-secondary btn-sm m-2">Add</button>
-        <button className="btn btn-secondary btn-sm">Delete</button>
+        <div className="form-group">
+          <form className="input-lm m-2">
+            Add a task todo:
+            <br />
+            <input type="text" name="task" ref="id" />
+            <button
+              onClick={this.appendToDo()}
+              className="btn btn-secondary btn-sm m-2"
+            >
+              Add
+            </button>
+            <button className="btn btn-secondary btn-sm">Delete</button>
+          </form>
+        </div>
         {this.state2.tags.length === 0 && "please add items to your todo list"}
         {this.renderTags()}
       </div>
@@ -51,8 +64,9 @@ class Counter extends Component {
 
   formatCount() {
     const { count } = this.state;
-    return count === 0 ? "No things TO do" : count;
+    return count === 0 ? "Nothings to do" : count + " things To Do";
   }
 }
 
 export default Counter;
+
