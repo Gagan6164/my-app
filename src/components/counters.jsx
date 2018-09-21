@@ -30,6 +30,12 @@ class Counter extends Component {
         <span style={this.styles} className={this.getBadgeMethod()}>
           {this.formatCount()}
         </span>
+        <form>
+          Add a target todo:
+          <br />
+          <input type="text" name="task" />
+        </form>
+
         <button className="btn btn-secondary btn-sm m-2">Add</button>
         <button className="btn btn-secondary btn-sm">Delete</button>
         {this.state2.tags.length === 0 && "please add items to your todo list"}
