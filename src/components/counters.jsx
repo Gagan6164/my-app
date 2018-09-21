@@ -5,10 +5,10 @@ class Counter extends Component {
     tags: ["learn react", "complete week 4 on coursera", "start ML"]
   };
   state = {
-    count: this.state2.tags.length
+    count: this.state2.tags.length + " things to do"
   };
   styles = {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold"
   };
 
@@ -16,11 +16,11 @@ class Counter extends Component {
     if (this.state2.tags.length === 0) return <p>you todo list is empty</p>;
 
     return (
-      <ul>
+      <ol>
         {this.state2.tags.map(tag => (
           <li key={tag}>{tag}</li>
         ))}
-      </ul>
+      </ol>
     );
   }
 
@@ -30,7 +30,8 @@ class Counter extends Component {
         <span style={this.styles} className={this.getBadgeMethod()}>
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary btn-sm">Add</button>
+        <button className="btn btn-secondary btn-sm m-2">Add</button>
+        <button className="btn btn-secondary btn-sm">Delete</button>
         {this.state2.tags.length === 0 && "please add items to your todo list"}
         {this.renderTags()}
       </div>
