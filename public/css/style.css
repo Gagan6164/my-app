@@ -19,7 +19,7 @@
   -o-background-size: cover;
   background-size: cover;
   position: absolute;
-  z-index:-100;
+  z-index: -100;
 }
 #spiders {
   position: absolute;
@@ -39,5 +39,12 @@ html {
   margin: 50px 100px 100px 100px;
   z-index: 1000;
   border: 1px solid white;
-  background: rgba(0, 0, 0, 0.5)
+  background: rgba(0, 0, 0, 0.5);
+}
+#root li {
+  color: #5a5a5a;
+  margin: 0 300px 2px 10px;
+  font-family: Snell Roundhand;
+  font-style: italic;
+  font-size: 15px;
 }

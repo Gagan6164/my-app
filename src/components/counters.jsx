@@ -23,11 +23,13 @@ class Counter extends Component {
     if (this.state2.tags.length === 0) return <p>you todo list is empty</p>;
 
     return (
-      <ol>
+      <ul className="list-group">
         {this.state2.tags.map(tag => (
-          <li key={tag}>{tag}</li>
+          <li key={tag} className="list-group-item">
+            {tag}
+          </li>
         ))}
-      </ol>
+      </ul>
     );
   }
 
@@ -37,20 +39,22 @@ class Counter extends Component {
         <span style={this.styles} className={this.getBadgeMethod()}>
           {this.formatCount()}
         </span>
-        <div className="form-group">
-          <form className="input-lm m-2">
-            Add a task todo:
-            <br />
-            <input type="text" name="task" ref="id" />
+
+        <form className="form-inline">
+          <div className="form-group mx-sm-3 mb-2">
+            <h3>Add a task todo:  </h3>
+            <input type="text" name="task" ref="id" className="form-control" />
             <button
               onClick={this.appendToDo()}
               className="btn btn-secondary btn-sm m-2"
+              type="submit"
             >
               Add
             </button>
             <button className="btn btn-secondary btn-sm">Delete</button>
-          </form>
-        </div>
+          </div>
+        </form>
+
         {this.state2.tags.length === 0 && "please add items to your todo list"}
         {this.renderTags()}
       </div>
@@ -69,4 +73,3 @@ class Counter extends Component {
 }
 
 export default Counter;
-
